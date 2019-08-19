@@ -6,8 +6,8 @@ import org.apache.logging.log4j.Logger;
 import com.esotericsoftware.kryonet.Connection;
 import com.esotericsoftware.kryonet.Listener;
 
-import core.pojos.SomeRequest;
-import core.pojos.SomeResponse;
+import net.SomeRequest;
+import net.SomeResponse;
 
 public class ServerListener extends Listener {
 	

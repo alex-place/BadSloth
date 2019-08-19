@@ -5,7 +5,7 @@ import org.apache.logging.log4j.Logger;
 import com.esotericsoftware.kryonet.Connection;
 import com.esotericsoftware.kryonet.Listener;
 
-import core.pojos.SomeResponse;
+import net.SomeResponse;
 
 public class DebugClientListener extends Listener {
 	Logger LOGGER = LogManager.getLogger(DebugClientListener.class);

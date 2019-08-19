@@ -6,7 +6,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import com.esotericsoftware.kryonet.Server;
 
-import core.register.SerializeRegister;
+import register.SerializeRegister;
 
 public class SlothServer extends Server{
 

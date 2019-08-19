@@ -7,8 +7,8 @@ import org.apache.logging.log4j.Logger;
 
 import com.esotericsoftware.kryonet.Client;
 
-import core.pojos.SomeRequest;
-import core.register.SerializeRegister;
+import net.SomeRequest;
+import register.SerializeRegister;
 
 public class DebugClient extends Client {
 	

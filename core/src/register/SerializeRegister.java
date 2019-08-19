@@ -1,4 +1,4 @@
-package core.register;
+package register;
 
 
 import com.esotericsoftware.kryo.Kryo;
@@ -6,8 +6,9 @@ import com.esotericsoftware.kryonet.Client;
 import com.esotericsoftware.kryonet.EndPoint;
 import com.esotericsoftware.kryonet.Server;
 
-import core.pojos.SomeRequest;
-import core.pojos.SomeResponse;
+import net.SomeRequest;
+import net.SomeResponse;
+import pojos.PositionComponent;
 
 public class SerializeRegister {
 
@@ -36,5 +37,6 @@ public class SerializeRegister {
 		 */
 		register(SomeRequest.class, endpoint);
 		register(SomeResponse.class, endpoint);
+		register(PositionComponent.class, endpoint);
 	}
 }

@@ -1,4 +1,4 @@
-package core.pojos;
+package net;
 
 public class SomeRequest {
 
