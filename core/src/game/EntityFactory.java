@@ -3,6 +3,8 @@ package game;
 import com.badlogic.ashley.core.Component;
 import com.badlogic.ashley.core.Entity;
 
+import pojos.PositionComponent;
+
 public class EntityFactory {
 
 	public static Entity createUnit(Component... components) {
@@ -11,6 +13,16 @@ public class EntityFactory {
 			entity.add(component);
 		Bag.engine.addEntity(entity);
 		return entity;
+	}
+	
+	private void makeHex(int index) {
+		Entity hex = createUnit(new PositionComponent(index, index)); 
+	}
+	
+	public void createBoard() {
+		for(int i = 0; i < GameBoard.maxHex; i++) {
+			makeHex(GameBoard.maxHex);
+		}
 	}
 
 }

@@ -2,15 +2,15 @@ package server;
 
 import java.io.IOException;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import com.esotericsoftware.kryonet.Server;
 
+import game.Bag;
+import game.Logger;
 import register.SerializeRegister;
 
 public class SlothServer extends Server{
 
-	Logger LOGGER = LogManager.getLogger(SlothServer.class);
+	Logger LOGGER = Bag.getLogger(SlothServer.class);
 
 	public void init() throws IOException {
 		start();

@@ -2,12 +2,9 @@ package game;
 
 import java.lang.Thread.UncaughtExceptionHandler;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 public class ExceptionListener implements UncaughtExceptionHandler{
 
-	Logger LOGGER = LogManager.getLogger(ExceptionListener.class);
+	Logger LOGGER = Bag.getLogger(ExceptionListener.class);
 	
 	@Override
 	public void uncaughtException(Thread t, Throwable e) {

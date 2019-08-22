@@ -47,8 +47,6 @@ project(":desktop") {
         api "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
         api "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-desktop"
         compile group: 'com.esotericsoftware', name: 'kryonet', version: '2.22.0-RC1'
-        compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.12.1'
-  		compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.12.1'
         
     }
 }
@@ -61,8 +59,6 @@ project(":server") {
         api "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
         api "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-desktop"
         compile group: 'com.esotericsoftware', name: 'kryonet', version: '2.22.0-RC1'
-        compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.12.1'
-  		compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.12.1'
         
     }
 }
@@ -78,8 +74,6 @@ project(":core") {
         api "net.dermetfan.libgdx-utils:libgdx-utils:0.13.4"
         api "net.dermetfan.libgdx-utils:libgdx-utils-box2d:0.13.4"
         compile group: 'com.esotericsoftware', name: 'kryonet', version: '2.22.0-RC1'
-        compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.12.1'
-  		compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.12.1'
         
     }
 }
@@ -90,8 +84,6 @@ project(":slothapi") {
 
     dependencies {
         compile group: 'com.esotericsoftware', name: 'kryonet', version: '2.22.0-RC1'
-        compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.12.1'
-  		compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.12.1'
         
     }
 }

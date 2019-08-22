@@ -1,31 +1,33 @@
-package game;
+package render;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 
+import game.Bag;
+import game.ExceptionListener;
+
 public class GdxGame extends Game {
 	
-	DebugScreen screen;
-
 	@Override
 	public void create() {
-		screen = new DebugScreen();
-		setScreen(screen);
+		Bag.init(new DebugScreen());
+		setScreen(Bag.activeScreen);
 		Thread.setDefaultUncaughtExceptionHandler(new ExceptionListener());
+		
 	}
 
 	@Override
 	public void render() {
 		float delta = Gdx.graphics.getDeltaTime();
 		Bag.engine.update(delta);
-		screen.render(delta);
+		Bag.render(delta);
 		
 	}
 
 	@Override
 	public void dispose() {
-		screen.dispose();
+		Bag.dispose();
 	}
 	
 	@Override

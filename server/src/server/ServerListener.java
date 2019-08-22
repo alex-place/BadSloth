@@ -1,17 +1,16 @@
 package server;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import com.esotericsoftware.kryonet.Connection;
 import com.esotericsoftware.kryonet.Listener;
 
+import game.Bag;
+import game.Logger;
 import net.SomeRequest;
 import net.SomeResponse;
 
 public class ServerListener extends Listener {
 	
-	Logger LOGGER = LogManager.getLogger(ServerListener.class);
+	Logger LOGGER = Bag.getLogger(ServerListener.class);
 
 	@Override
 	public void received(Connection connection, Object object) {

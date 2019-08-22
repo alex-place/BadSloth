@@ -1,14 +1,14 @@
 package com.badsloth.game.desktop;
 
-import org.apache.logging.log4j.core.impl.Log4jContextFactory;
+import java.io.IOException;
 
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 
-import game.GdxGame;
+import render.GdxGame;
 
 public class DesktopLauncher {
-	public static void main (String[] arg) {
+	public static void main (String[] arg) throws IOException {
 		LwjglApplicationConfiguration cfg = new LwjglApplicationConfiguration();
 		 cfg.title = "BadSloth Debug Client";
 	      cfg.useGL30 = false;

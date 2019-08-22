@@ -2,18 +2,16 @@ package com.badsloth.debug;
 
 import java.io.IOException;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import com.esotericsoftware.kryonet.Client;
 
+import game.Bag;
+import game.Logger;
 import net.SomeRequest;
 import register.SerializeRegister;
 
 public class DebugClient extends Client {
-	
-	Logger LOGGER = LogManager.getLogger(DebugClient.class);
 
+	Logger LOGGER = Bag.getLogger(DebugClient.class);
 
 	public void init() throws IOException {
 		start();

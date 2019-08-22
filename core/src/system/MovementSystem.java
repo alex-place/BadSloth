@@ -1,8 +1,5 @@
 package system;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.ashley.core.Engine;
 import com.badlogic.ashley.core.Entity;
@@ -10,12 +7,14 @@ import com.badlogic.ashley.core.EntitySystem;
 import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.utils.ImmutableArray;
 
+import game.Bag;
+import game.Logger;
 import pojos.PositionComponent;
 import pojos.VelocityComponent;
 
 public class MovementSystem extends EntitySystem {
 	
-	Logger LOGGER = LogManager.getLogger(MovementSystem.class);
+	Logger LOGGER = Bag.getLogger(MovementSystem.class);
 	
 	private ImmutableArray<Entity> entities;
 
