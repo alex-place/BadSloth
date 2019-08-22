@@ -7,10 +7,10 @@ import com.badlogic.ashley.core.EntitySystem;
 import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.utils.ImmutableArray;
 
+import components.PositionComponent;
+import components.VelocityComponent;
 import game.Bag;
 import game.Logger;
-import pojos.PositionComponent;
-import pojos.VelocityComponent;
 
 public class MovementSystem extends EntitySystem {
 	

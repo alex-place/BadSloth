@@ -5,28 +5,22 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
+import components.PositionComponent;
+import components.RenderableComponent;
+import components.VelocityComponent;
 import game.EntityFactory;
-import pojos.PositionComponent;
-import pojos.VelocityComponent;
 
-public class DebugScreen extends BaseScreen{
-	
+public class DebugScreen extends BaseScreen {
+
 	SpriteBatch batch;
 	Texture img;
-	
-	
-	@Override
-	public void dispose () {
-		batch.dispose();
-		img.dispose();
-	}
 
 	@Override
 	public void show() {
-		batch = new SpriteBatch();
-		img = new Texture("badlogic.jpg");	
+		EntityFactory.createUnit(new PositionComponent(0, 0), new VelocityComponent(0.1f, 0.1f));
 		
-		EntityFactory.createUnit(new PositionComponent(0,0), new VelocityComponent(0.1f,0.1f));
+		EntityFactory.createUnit(new PositionComponent(0, 0), new RenderableComponent());
+		
 	}
 
 	@Override
@@ -36,30 +30,35 @@ public class DebugScreen extends BaseScreen{
 		batch.begin();
 		batch.draw(img, 0, 0);
 		batch.end();
-	}		
+	}
 
 	@Override
 	public void resize(int width, int height) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void pause() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void resume() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void hide() {
-		// TODO Auto-generated method stub
-		
+		dispose();
+	}
+
+	@Override
+	public void dispose() {
+		batch.dispose();
+		img.dispose();
 	}
 
 }

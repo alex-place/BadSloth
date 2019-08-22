@@ -6,9 +6,9 @@ import com.esotericsoftware.kryonet.Client;
 import com.esotericsoftware.kryonet.EndPoint;
 import com.esotericsoftware.kryonet.Server;
 
+import components.PositionComponent;
 import net.SomeRequest;
 import net.SomeResponse;
-import pojos.PositionComponent;
 
 public class SerializeRegister {
 

@@ -3,7 +3,7 @@ package game;
 import com.badlogic.ashley.core.Component;
 import com.badlogic.ashley.core.Entity;
 
-import pojos.PositionComponent;
+import components.PositionComponent;
 
 public class EntityFactory {
 
