@@ -9,6 +9,11 @@ public class ExceptionListener implements UncaughtExceptionHandler{
 	@Override
 	public void uncaughtException(Thread t, Throwable e) {
 		LOGGER.fatal(e.getClass().getName() + " was thrown thread: " + t.getName() , e);
+		e.printStackTrace();
+		try {
+			wait(1000);
+		} catch (InterruptedException e1) {
+		}
 	}
 
 }

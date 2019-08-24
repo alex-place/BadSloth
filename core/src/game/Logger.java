@@ -3,6 +3,10 @@ package game;
 import com.badlogic.gdx.Gdx;
 
 public class Logger implements LogInterface{
+	
+	protected Logger() {
+		
+	}
 
 	private String className;
 
