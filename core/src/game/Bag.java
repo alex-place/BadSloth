@@ -45,9 +45,7 @@ public class Bag extends PooledEngine {
 
 	@SuppressWarnings("rawtypes")
 	public static Logger getLogger(Class clazz) {
-		if (LOGGER == null) {
-			LOGGER = new Logger();
-		}
+		LOGGER = new Logger();
 		LOGGER.setClassName(clazz.getName());
 		return LOGGER;
 	}

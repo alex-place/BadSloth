@@ -8,8 +8,6 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 import components.PositionComponent;
-import components.RenderableComponent;
-import components.VelocityComponent;
 import game.Bag;
 import game.EntityFactory;
 import systems.MovementSystem;
@@ -19,10 +17,12 @@ public class DebugScreen extends BaseScreen {
 
 	SpriteBatch batch;
 	OrthographicCamera cam;
-	RenderingSystem render;
-	MovementSystem move;
+	//TODO convert to use TextureAtlas
 	Texture hex;
-
+	Texture circle;
+	
+	Entity c;
+	
 	@Override
 	public void show() {
 		batch = new SpriteBatch();
@@ -31,27 +31,33 @@ public class DebugScreen extends BaseScreen {
 		// Height is multiplied by aspect ratio.
 		float w = Gdx.graphics.getWidth();
 		float h = Gdx.graphics.getHeight();
-		cam = new OrthographicCamera(3000, 3000 * (h / w));
+		cam = new OrthographicCamera(8, (float) (8 * (h / w) + 1));
 
 		cam.position.set(cam.viewportWidth / 2f, cam.viewportHeight / 2f, 0);
 		cam.update();
 
 		hex = new Texture("hex.png");
+		TextureRegion hexReg = new TextureRegion(hex);
+		
+		circle = new Texture("circle.png");
+		TextureRegion circleReg = new TextureRegion(circle);
 
-		Bag.engine.addSystem(move = new MovementSystem());
-		Bag.engine.addSystem(render = new RenderingSystem(batch, cam));
+		Bag.engine.addSystem(new MovementSystem());
+		Bag.engine.addSystem(new RenderingSystem(batch, cam));
 
-		Entity entity = EntityFactory.createUnit(new PositionComponent(0, 0), new VelocityComponent(0.1f, 0.1f));
-		EntityFactory.createUnit(new PositionComponent(0, 0), new RenderableComponent(new TextureRegion(hex)));
-		EntityFactory.createBoard(new TextureRegion(hex));
+	//	EntityFactory.createBoard(new TextureRegion(hex));
+		c = EntityFactory.circle();
+		Bag.engine.addEntity(c);
+		c.add(new PositionComponent(5,5));
+
 		batch = new SpriteBatch(100);
-		render = Bag.engine.getSystem(RenderingSystem.class);
+		batch.setProjectionMatrix(cam.combined);
 
 	}
 
 	@Override
 	public void render(float delta) {
-		render.update(delta);
+		Bag.engine.update(delta);
 	}
 
 	@Override
@@ -81,6 +87,7 @@ public class DebugScreen extends BaseScreen {
 	public void dispose() {
 		batch.dispose();
 		hex.dispose();
+		circle.dispose();
 	}
 
 }

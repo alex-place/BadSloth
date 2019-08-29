@@ -26,21 +26,13 @@ public class MovementSystem extends BaseSystem {
 		VelocityComponent velocity = vm.get(entity);
 		position.x += velocity.x * deltaTime;
 		position.y += velocity.y * deltaTime;
-		
-		
-		LOGGER.debug(position.x + " " + position.y);
-		
 	}
 
 	@Override
 	public void entityAdded(Entity entity) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public void entityRemoved(Entity entity) {
-		// TODO Auto-generated method stub
-		
 	}
 }
