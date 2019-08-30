@@ -6,16 +6,19 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Vector2;
 
 import components.PositionComponent;
 import components.RenderableComponent;
 import game.Bag;
 import game.Logger;
+import utils.Utils;
 
 public class RenderingSystem extends BaseSystem {
 	private SpriteBatch batch;
 	private OrthographicCamera camera;
 	Logger LOGGER = Bag.getLogger(RenderingSystem.class);
+	boolean one = true;
 
 	public RenderingSystem(SpriteBatch batch, OrthographicCamera camera) {
 		super(Family.all(PositionComponent.class, RenderableComponent.class).get());
@@ -29,32 +32,13 @@ public class RenderingSystem extends BaseSystem {
 
 		position = entity.getComponent(PositionComponent.class);
 		visual = entity.getComponent(RenderableComponent.class);
-		float adjustedY = position.y;
-		if(position.x % 2 == 0) {
-			adjustedY += 0.5f;
-		}
-		float adjustedX = position.x;
-		if(position.x % 2 == 0) {
-			adjustedX += 0.25f;
-		}
+		Vector2 adjusted = Utils.worldToPixel(position.x, position.y);
+		float adjustedY = adjusted.y;
+		float adjustedX = adjusted.x;
+		if(one)
+		LOGGER.debug(adjustedX + " , " + adjustedY);
 		
-		if(position.x > 1) {
-			adjustedX -= 0.5f;
-		}
-		
-		if(position.x > 3) {
-			adjustedX -= 0.5f;
-		}
-		
-		if(position.x > 5) {
-			adjustedX -= 0.5f;
-		}
-		
-//		adjustedY += -.1f * (position.x);
-//		adjustedX += -.1f * (position.y);
-
 		batch.draw(visual.region, adjustedX, adjustedY, visual.width, visual.height);
-		LOGGER.debug(position.x + " " + position.y);
 	}
 
 	@Override
@@ -79,6 +63,7 @@ public class RenderingSystem extends BaseSystem {
 			processEntity(getEntities().get(i), deltaTime);
 		}
 		batch.end();
+		one = false;
 	}
 
 }

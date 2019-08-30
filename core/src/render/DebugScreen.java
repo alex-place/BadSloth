@@ -17,14 +17,15 @@ public class DebugScreen extends BaseScreen {
 
 	SpriteBatch batch;
 	OrthographicCamera cam;
-	//TODO convert to use TextureAtlas
+	// TODO convert to use TextureAtlas
 	Texture hex;
 	Texture circle;
-	
+
 	Entity c;
-	
+
 	@Override
 	public void show() {
+		Gdx.input.setInputProcessor(this);
 		batch = new SpriteBatch();
 		// Constructs a new OrthographicCamera, using the given viewport width and
 		// height
@@ -38,17 +39,18 @@ public class DebugScreen extends BaseScreen {
 
 		hex = new Texture("hex.png");
 		TextureRegion hexReg = new TextureRegion(hex);
-		
+
 		circle = new Texture("circle.png");
 		TextureRegion circleReg = new TextureRegion(circle);
 
 		Bag.engine.addSystem(new MovementSystem());
-		Bag.engine.addSystem(new RenderingSystem(batch, cam));
+		RenderingSystem r = new RenderingSystem(batch, cam);
+		r.priority = 10;
+		Bag.engine.addSystem(r);
 
-	//	EntityFactory.createBoard(new TextureRegion(hex));
+		EntityFactory.createBoard(new TextureRegion(hex));
 		c = EntityFactory.circle();
 		Bag.engine.addEntity(c);
-		c.add(new PositionComponent(5,5));
 
 		batch = new SpriteBatch(100);
 		batch.setProjectionMatrix(cam.combined);
@@ -88,6 +90,55 @@ public class DebugScreen extends BaseScreen {
 		batch.dispose();
 		hex.dispose();
 		circle.dispose();
+	}
+
+	@Override
+	public boolean keyDown(int keycode) {
+		return false;
+	}
+
+	@Override
+	public boolean keyUp(int keycode) {
+		return false;
+	}
+
+	@Override
+	public boolean keyTyped(char character) {
+		return false;
+	}
+
+	@Override
+	public boolean touchDown(int screenX, int screenY, int pointer, int button) {
+		touchDragged(screenX, screenY, pointer);
+		return true;
+	}
+
+	@Override
+	public boolean touchUp(int screenX, int screenY, int pointer, int button) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean touchDragged(int screenX, int screenY, int pointer) {
+		// ignore if its not left mouse button or first touch pointer
+		if (pointer > 0)
+			return false;
+		cam.unproject(tp.set(screenX, screenY, 0));
+		c.add(new PositionComponent(tp.x, tp.y));
+		return true;
+	}
+
+	@Override
+	public boolean mouseMoved(int screenX, int screenY) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean scrolled(int amount) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }
