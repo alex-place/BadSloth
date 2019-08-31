@@ -2,10 +2,14 @@ package render;
 
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.maps.tiled.TiledMap;
+import com.badlogic.gdx.maps.tiled.TmxMapLoader;
+import com.badlogic.gdx.maps.tiled.renderers.HexagonalTiledMapRenderer;
 
 import components.PositionComponent;
 import game.Bag;
@@ -22,11 +26,20 @@ public class DebugScreen extends BaseScreen {
 	Texture circle;
 
 	Entity c;
+	
+	TmxMapLoader mapLoader;
+	TiledMap map;
+	HexagonalTiledMapRenderer renderer;
 
 	@Override
 	public void show() {
+		mapLoader = new TmxMapLoader();
+		map = mapLoader.load("untitled.tmx");
+		
 		Gdx.input.setInputProcessor(this);
 		batch = new SpriteBatch();
+		renderer= new HexagonalTiledMapRenderer(map, 1/70f, batch);
+
 		// Constructs a new OrthographicCamera, using the given viewport width and
 		// height
 		// Height is multiplied by aspect ratio.
@@ -36,6 +49,9 @@ public class DebugScreen extends BaseScreen {
 
 		cam.position.set(cam.viewportWidth / 2f, cam.viewportHeight / 2f, 0);
 		cam.update();
+		
+		renderer.setView(cam);
+
 
 		hex = new Texture("hex.png");
 		TextureRegion hexReg = new TextureRegion(hex);
@@ -48,7 +64,7 @@ public class DebugScreen extends BaseScreen {
 		r.priority = 10;
 		Bag.engine.addSystem(r);
 
-		EntityFactory.createBoard(new TextureRegion(hex));
+		//EntityFactory.createBoard(new TextureRegion(hex));
 		c = EntityFactory.circle();
 		Bag.engine.addEntity(c);
 
@@ -59,6 +75,10 @@ public class DebugScreen extends BaseScreen {
 
 	@Override
 	public void render(float delta) {
+		Gdx.gl.glClearColor(1, 1, 1, 1);
+		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+		renderer.setView(cam);
+		renderer.render(new int[] {0});
 		Bag.engine.update(delta);
 	}
 
