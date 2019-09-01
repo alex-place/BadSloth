@@ -6,14 +6,14 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 public class RenderableComponent implements PooledComponent{
 	
 	public TextureRegion region;
-	public int width;
-	public int height;
+	public float width;
+	public float height;
 	public Color color;
 
-	public RenderableComponent (TextureRegion region, int width, int height) {
+	public RenderableComponent (TextureRegion region, float f, float g) {
 		this.region = region;
-		this.width = width;
-		this.height = height;
+		this.width = f;
+		this.height = g;
 		color = Color.WHITE;
 	}
 

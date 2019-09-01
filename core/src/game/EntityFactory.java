@@ -41,7 +41,7 @@ public class EntityFactory {
 	}
 
 	public static Entity circle() {
-		return createUnit(new PositionComponent(0, 0), new RenderableComponent(new TextureRegion(new Texture("circle.png")), 1,1));
+		return createUnit(new PositionComponent(0, 0), new RenderableComponent(new TextureRegion(new Texture("circle.png")), 0.1f,0.1f));
 	}
 
 }

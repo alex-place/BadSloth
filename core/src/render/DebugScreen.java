@@ -6,7 +6,6 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.HexagonalTiledMapRenderer;
@@ -14,10 +13,13 @@ import com.badlogic.gdx.maps.tiled.renderers.HexagonalTiledMapRenderer;
 import components.PositionComponent;
 import game.Bag;
 import game.EntityFactory;
+import game.Logger;
 import systems.MovementSystem;
 import systems.RenderingSystem;
 
 public class DebugScreen extends BaseScreen {
+	
+	Logger LOGGER = Bag.getLogger(DebugScreen.class);
 
 	SpriteBatch batch;
 	OrthographicCamera cam;
@@ -26,7 +28,7 @@ public class DebugScreen extends BaseScreen {
 	Texture circle;
 
 	Entity c;
-	
+
 	TmxMapLoader mapLoader;
 	TiledMap map;
 	HexagonalTiledMapRenderer renderer;
@@ -35,10 +37,10 @@ public class DebugScreen extends BaseScreen {
 	public void show() {
 		mapLoader = new TmxMapLoader();
 		map = mapLoader.load("untitled.tmx");
-		
+
 		Gdx.input.setInputProcessor(this);
 		batch = new SpriteBatch();
-		renderer= new HexagonalTiledMapRenderer(map, 1/70f, batch);
+		renderer = new HexagonalTiledMapRenderer(map, 1 / 70f, batch);
 
 		// Constructs a new OrthographicCamera, using the given viewport width and
 		// height
@@ -49,15 +51,12 @@ public class DebugScreen extends BaseScreen {
 
 		cam.position.set(cam.viewportWidth / 2f, cam.viewportHeight / 2f, 0);
 		cam.update();
-		
+
 		renderer.setView(cam);
 
-
 		hex = new Texture("hex.png");
-		TextureRegion hexReg = new TextureRegion(hex);
 
 		circle = new Texture("circle.png");
-		TextureRegion circleReg = new TextureRegion(circle);
 
 		Bag.engine.addSystem(new MovementSystem());
 		RenderingSystem r = new RenderingSystem(batch, cam);
@@ -78,7 +77,7 @@ public class DebugScreen extends BaseScreen {
 		Gdx.gl.glClearColor(1, 1, 1, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		renderer.setView(cam);
-		renderer.render(new int[] {0});
+		renderer.render();
 		Bag.engine.update(delta);
 	}
 
@@ -146,6 +145,7 @@ public class DebugScreen extends BaseScreen {
 			return false;
 		cam.unproject(tp.set(screenX, screenY, 0));
 		c.add(new PositionComponent(tp.x, tp.y));
+		LOGGER.debug(tp.x + "  --  " + tp.y);
 		return true;
 	}
 

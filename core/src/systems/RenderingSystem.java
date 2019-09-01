@@ -32,12 +32,12 @@ public class RenderingSystem extends BaseSystem {
 
 		position = entity.getComponent(PositionComponent.class);
 		visual = entity.getComponent(RenderableComponent.class);
-		Vector2 adjusted = Utils.worldToPixel(position.x, position.y);
-		float adjustedY = adjusted.y;
-		float adjustedX = adjusted.x;
-		if(one)
-		LOGGER.debug(adjustedX + " , " + adjustedY);
-		
+		Vector2 adjusted = new Vector2(position.x, position.y);// = Utils.worldToPixel(position.x, position.y);
+		float adjustedY = adjusted.y - (visual.width / 2);
+		float adjustedX = adjusted.x - (visual.height / 2);
+		if (one)
+			LOGGER.debug(adjustedX + " , " + adjustedY);
+
 		batch.draw(visual.region, adjustedX, adjustedY, visual.width, visual.height);
 	}
 
@@ -54,7 +54,7 @@ public class RenderingSystem extends BaseSystem {
 
 	@Override
 	public void update(float deltaTime) {
-		
+
 		batch.begin();
 		batch.setProjectionMatrix(camera.combined);
 
