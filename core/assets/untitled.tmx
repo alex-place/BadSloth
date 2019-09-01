@@ -1,263 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="hexagonal" renderorder="right-down" width="8" height="8" tilewidth="65" tileheight="100" hexsidelength="0" staggeraxis="y" staggerindex="odd" nextobjectid="174">
+<map version="1.0" orientation="hexagonal" renderorder="left-up" width="8" height="8" tilewidth="65" tileheight="100" hexsidelength="0" staggeraxis="y" staggerindex="odd" nextobjectid="74">
  <tileset firstgid="1" name="fullTiles" tilewidth="65" tileheight="89" tilecount="35" columns="7">
   <image source="fullTiles.png" width="512" height="512"/>
  </tileset>
- <tileset firstgid="36" name="buildings" tilewidth="66" tileheight="92" tilecount="84" columns="0">
-  <tile id="0">
-   <image width="8" height="21" source="buildings/door.png"/>
-  </tile>
-  <tile id="1">
-   <image width="21" height="26" source="buildings/gate.png"/>
-  </tile>
-  <tile id="2">
-   <image width="65" height="92" source="buildings/redRoofPointy.png"/>
-  </tile>
-  <tile id="3">
-   <image width="65" height="68" source="buildings/redRoofRounded.png"/>
-  </tile>
-  <tile id="4">
-   <image width="65" height="67" source="buildings/redRoofShort.png"/>
-  </tile>
-  <tile id="5">
-   <image width="65" height="88" source="buildings/redRoofStraight.png"/>
-  </tile>
-  <tile id="6">
-   <image width="65" height="92" source="buildings/redRoofTall.png"/>
-  </tile>
-  <tile id="7">
-   <image width="65" height="89" source="buildings/rockDoorLeft.png"/>
-  </tile>
-  <tile id="8">
-   <image width="65" height="89" source="buildings/rockDoorRight.png"/>
-  </tile>
-  <tile id="9">
-   <image width="65" height="89" source="buildings/rockDoorWindow.png"/>
-  </tile>
-  <tile id="10">
-   <image width="65" height="89" source="buildings/rockDoorWindowBlinds.png"/>
-  </tile>
-  <tile id="11">
-   <image width="65" height="89" source="buildings/rockDoorWindowBlindsMirror.png"/>
-  </tile>
-  <tile id="12">
-   <image width="65" height="89" source="buildings/rockDoorWindowMirror.png"/>
-  </tile>
-  <tile id="13">
-   <image width="65" height="89" source="buildings/rockGateLeft.png"/>
-  </tile>
-  <tile id="14">
-   <image width="65" height="89" source="buildings/rockGateRight.png"/>
-  </tile>
-  <tile id="15">
-   <image width="65" height="76" source="buildings/rockRing.png"/>
-  </tile>
-  <tile id="16">
-   <image width="65" height="89" source="buildings/rockWindowBlinds.png"/>
-  </tile>
-  <tile id="17">
-   <image width="65" height="89" source="buildings/rockWindowBlindsLeft.png"/>
-  </tile>
-  <tile id="18">
-   <image width="65" height="89" source="buildings/rockWindowBlindsRight.png"/>
-  </tile>
-  <tile id="19">
-   <image width="65" height="89" source="buildings/rockWindowLeft.png"/>
-  </tile>
-  <tile id="20">
-   <image width="65" height="89" source="buildings/rockWindowRight.png"/>
-  </tile>
-  <tile id="21">
-   <image width="65" height="89" source="buildings/rockWindows.png"/>
-  </tile>
-  <tile id="22">
-   <image width="65" height="89" source="buildings/sandDoorLeft.png"/>
-  </tile>
-  <tile id="23">
-   <image width="65" height="89" source="buildings/sandDoorRight.png"/>
-  </tile>
-  <tile id="24">
-   <image width="65" height="89" source="buildings/sandDoorWindow.png"/>
-  </tile>
-  <tile id="25">
-   <image width="65" height="89" source="buildings/sandDoorWindowBlinds.png"/>
-  </tile>
-  <tile id="26">
-   <image width="65" height="89" source="buildings/sandDoorWindowBlindsMirror.png"/>
-  </tile>
-  <tile id="27">
-   <image width="65" height="89" source="buildings/sandDoorWindowMirror.png"/>
-  </tile>
-  <tile id="28">
-   <image width="65" height="89" source="buildings/sandGateLeft.png"/>
-  </tile>
-  <tile id="29">
-   <image width="65" height="89" source="buildings/sandGateRight.png"/>
-  </tile>
-  <tile id="30">
-   <image width="65" height="76" source="buildings/sandRing.png"/>
-  </tile>
-  <tile id="31">
-   <image width="65" height="92" source="buildings/sandRoofPointy.png"/>
-  </tile>
-  <tile id="32">
-   <image width="66" height="68" source="buildings/sandRoofRounded.png"/>
-  </tile>
-  <tile id="33">
-   <image width="65" height="68" source="buildings/sandRoofShort.png"/>
-  </tile>
-  <tile id="34">
-   <image width="66" height="88" source="buildings/sandRoofStraight.png"/>
-  </tile>
-  <tile id="35">
-   <image width="65" height="92" source="buildings/sandRoofTall.png"/>
-  </tile>
-  <tile id="36">
-   <image width="65" height="89" source="buildings/sandWindowBlinds.png"/>
-  </tile>
-  <tile id="37">
-   <image width="65" height="89" source="buildings/sandWindowBlindsLeft.png"/>
-  </tile>
-  <tile id="38">
-   <image width="65" height="89" source="buildings/sandWindowBlindsRight.png"/>
-  </tile>
-  <tile id="39">
-   <image width="65" height="89" source="buildings/sandWindowLeft.png"/>
-  </tile>
-  <tile id="40">
-   <image width="65" height="89" source="buildings/sandWindowRight.png"/>
-  </tile>
-  <tile id="41">
-   <image width="65" height="89" source="buildings/sandWindows.png"/>
-  </tile>
-  <tile id="42">
-   <image width="65" height="89" source="buildings/stoneDoorLeft.png"/>
-  </tile>
-  <tile id="43">
-   <image width="65" height="89" source="buildings/stoneDoorRight.png"/>
-  </tile>
-  <tile id="44">
-   <image width="65" height="89" source="buildings/stoneDoorWindow.png"/>
-  </tile>
-  <tile id="45">
-   <image width="65" height="89" source="buildings/stoneDoorWindowBlinds.png"/>
-  </tile>
-  <tile id="46">
-   <image width="65" height="89" source="buildings/stoneDoorWindowBlindsMirror.png"/>
-  </tile>
-  <tile id="47">
-   <image width="65" height="89" source="buildings/stoneDoorWindowMirror.png"/>
-  </tile>
-  <tile id="48">
-   <image width="65" height="89" source="buildings/stoneGateLeft.png"/>
-  </tile>
-  <tile id="49">
-   <image width="65" height="89" source="buildings/stoneGateRight.png"/>
-  </tile>
-  <tile id="50">
-   <image width="65" height="76" source="buildings/stoneRing.png"/>
-  </tile>
-  <tile id="51">
-   <image width="65" height="92" source="buildings/stoneRoofPointy.png"/>
-  </tile>
-  <tile id="52">
-   <image width="66" height="68" source="buildings/stoneRoofRounded.png"/>
-  </tile>
-  <tile id="53">
-   <image width="65" height="68" source="buildings/stoneRoofShort.png"/>
-  </tile>
-  <tile id="54">
-   <image width="66" height="88" source="buildings/stoneRoofStraight.png"/>
-  </tile>
-  <tile id="55">
-   <image width="65" height="92" source="buildings/stoneRoofTall.png"/>
-  </tile>
-  <tile id="56">
-   <image width="65" height="89" source="buildings/stoneWindowBlinds.png"/>
-  </tile>
-  <tile id="57">
-   <image width="65" height="89" source="buildings/stoneWindowBlindsLeft.png"/>
-  </tile>
-  <tile id="58">
-   <image width="65" height="89" source="buildings/stoneWindowBlindsRight.png"/>
-  </tile>
-  <tile id="59">
-   <image width="65" height="89" source="buildings/stoneWindowLeft.png"/>
-  </tile>
-  <tile id="60">
-   <image width="65" height="89" source="buildings/stoneWindowRight.png"/>
-  </tile>
-  <tile id="61">
-   <image width="65" height="89" source="buildings/stoneWindows.png"/>
-  </tile>
-  <tile id="62">
-   <image width="8" height="19" source="buildings/window.png"/>
-  </tile>
-  <tile id="63">
-   <image width="16" height="25" source="buildings/windowBlinds.png"/>
-  </tile>
-  <tile id="64">
-   <image width="65" height="89" source="buildings/woodDoorLeft.png"/>
-  </tile>
-  <tile id="65">
-   <image width="65" height="89" source="buildings/woodDoorRight.png"/>
-  </tile>
-  <tile id="66">
-   <image width="65" height="89" source="buildings/woodDoorWindow.png"/>
-  </tile>
-  <tile id="67">
-   <image width="65" height="89" source="buildings/woodDoorWindowBlinds.png"/>
-  </tile>
-  <tile id="68">
-   <image width="65" height="89" source="buildings/woodDoorWindowBlindsMirror.png"/>
-  </tile>
-  <tile id="69">
-   <image width="65" height="89" source="buildings/woodDoorWindowMirror.png"/>
-  </tile>
-  <tile id="70">
-   <image width="65" height="89" source="buildings/woodGateLeft.png"/>
-  </tile>
-  <tile id="71">
-   <image width="65" height="89" source="buildings/woodGateRight.png"/>
-  </tile>
-  <tile id="72">
-   <image width="65" height="76" source="buildings/woodRing.png"/>
-  </tile>
-  <tile id="73">
-   <image width="65" height="92" source="buildings/woodRoofPointy.png"/>
-  </tile>
-  <tile id="74">
-   <image width="65" height="68" source="buildings/woodRoofRounded.png"/>
-  </tile>
-  <tile id="75">
-   <image width="65" height="67" source="buildings/woodRoofShort.png"/>
-  </tile>
-  <tile id="76">
-   <image width="65" height="88" source="buildings/woodRoofStraight.png"/>
-  </tile>
-  <tile id="77">
-   <image width="65" height="92" source="buildings/woodRoofTall.png"/>
-  </tile>
-  <tile id="78">
-   <image width="65" height="89" source="buildings/woodWindowBlinds.png"/>
-  </tile>
-  <tile id="79">
-   <image width="65" height="89" source="buildings/woodWindowBlindsLeft.png"/>
-  </tile>
-  <tile id="80">
-   <image width="65" height="89" source="buildings/woodWindowBlindsRight.png"/>
-  </tile>
-  <tile id="81">
-   <image width="65" height="89" source="buildings/woodWindowLeft.png"/>
-  </tile>
-  <tile id="82">
-   <image width="65" height="89" source="buildings/woodWindowRight.png"/>
-  </tile>
-  <tile id="83">
-   <image width="65" height="89" source="buildings/woodWindows.png"/>
-  </tile>
- </tileset>
- <layer name="ground" width="8" height="8">
+ <layer name="Tile Layer 1" width="8" height="8">
   <data encoding="csv">
 1,1,1,1,1,1,1,1,
 1,1,1,1,1,1,1,1,
@@ -269,94 +15,71 @@
 1,1,1,1,1,1,1,1
 </data>
  </layer>
- <layer name="level1" width="8" height="8" offsetx="0" offsety="-24">
-  <data encoding="csv">
-0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0
-</data>
- </layer>
- <layer name="level2" width="8" height="8" offsetx="0" offsety="-46">
-  <data encoding="csv">
-0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0
-</data>
- </layer>
  <objectgroup name="contacts">
-  <object id="108" x="32" y="50"/>
-  <object id="109" x="96" y="50"/>
-  <object id="110" x="160" y="50"/>
-  <object id="111" x="224" y="50"/>
-  <object id="112" x="288" y="50"/>
-  <object id="113" x="352" y="50"/>
-  <object id="114" x="416" y="50"/>
-  <object id="115" x="480" y="50"/>
-  <object id="116" x="512" y="100"/>
-  <object id="117" x="448" y="100"/>
-  <object id="118" x="384" y="100"/>
-  <object id="119" x="320" y="100"/>
-  <object id="120" x="256" y="100"/>
-  <object id="121" x="192" y="100"/>
-  <object id="122" x="128" y="100"/>
-  <object id="123" x="64" y="100"/>
-  <object id="125" x="32" y="150"/>
-  <object id="126" x="96" y="150"/>
-  <object id="127" x="160" y="150"/>
-  <object id="128" x="224" y="150"/>
-  <object id="129" x="288" y="150"/>
-  <object id="130" x="352" y="150"/>
-  <object id="131" x="416" y="150"/>
-  <object id="132" x="480" y="150"/>
-  <object id="133" x="448" y="200"/>
-  <object id="134" x="512" y="200"/>
-  <object id="135" x="384" y="200"/>
-  <object id="136" x="320" y="200"/>
-  <object id="137" x="256" y="200"/>
-  <object id="138" x="192" y="200"/>
-  <object id="139" x="128" y="200"/>
-  <object id="140" x="64" y="200"/>
-  <object id="142" x="32" y="250"/>
-  <object id="143" x="96" y="250"/>
-  <object id="144" x="64" y="300"/>
-  <object id="145" x="128" y="300"/>
-  <object id="146" x="32" y="350"/>
-  <object id="147" x="96" y="350"/>
-  <object id="148" x="64" y="400"/>
-  <object id="149" x="128" y="400"/>
-  <object id="150" x="192" y="400"/>
-  <object id="151" x="160" y="350"/>
-  <object id="152" x="256" y="400"/>
-  <object id="153" x="192" y="300"/>
-  <object id="154" x="160" y="250"/>
-  <object id="155" x="320" y="400"/>
-  <object id="156" x="288" y="350"/>
-  <object id="157" x="256" y="300"/>
-  <object id="158" x="224" y="250"/>
-  <object id="159" x="224" y="350"/>
-  <object id="160" x="384" y="400"/>
-  <object id="161" x="352" y="350"/>
-  <object id="162" x="320" y="300"/>
-  <object id="163" x="288" y="250"/>
-  <object id="164" x="448" y="400"/>
-  <object id="165" x="416" y="350"/>
-  <object id="166" x="384" y="300"/>
-  <object id="167" x="352" y="250"/>
-  <object id="168" x="512" y="400"/>
-  <object id="169" x="480" y="350"/>
-  <object id="170" x="448" y="300"/>
-  <object id="171" x="416" y="250"/>
-  <object id="172" x="512" y="300"/>
-  <object id="173" x="480" y="250"/>
+  <object id="3" x="64" y="0"/>
+  <object id="4" x="128" y="0"/>
+  <object id="5" x="192" y="0"/>
+  <object id="6" x="256" y="0"/>
+  <object id="7" x="320" y="0"/>
+  <object id="8" x="384" y="0"/>
+  <object id="9" x="448" y="0"/>
+  <object id="10" x="32" y="50"/>
+  <object id="11" x="96" y="50"/>
+  <object id="12" x="160" y="50"/>
+  <object id="13" x="224" y="50"/>
+  <object id="14" x="288" y="50"/>
+  <object id="15" x="352" y="50"/>
+  <object id="16" x="416" y="50"/>
+  <object id="17" x="480" y="50"/>
+  <object id="18" x="448" y="100"/>
+  <object id="19" x="384" y="100"/>
+  <object id="20" x="320" y="100"/>
+  <object id="21" x="256" y="100"/>
+  <object id="22" x="192" y="100"/>
+  <object id="23" x="128" y="100"/>
+  <object id="24" x="64" y="100"/>
+  <object id="26" x="32" y="150"/>
+  <object id="27" x="96" y="150"/>
+  <object id="28" x="160" y="150"/>
+  <object id="29" x="224" y="150"/>
+  <object id="30" x="288" y="150"/>
+  <object id="31" x="352" y="150"/>
+  <object id="32" x="416" y="150"/>
+  <object id="33" x="480" y="150"/>
+  <object id="34" x="448" y="200"/>
+  <object id="35" x="384" y="200"/>
+  <object id="36" x="320" y="200"/>
+  <object id="37" x="256" y="200"/>
+  <object id="38" x="192" y="200"/>
+  <object id="39" x="128" y="200"/>
+  <object id="40" x="64" y="200"/>
+  <object id="42" x="32" y="250"/>
+  <object id="43" x="96" y="250"/>
+  <object id="44" x="160" y="250"/>
+  <object id="45" x="224" y="250"/>
+  <object id="46" x="288" y="250"/>
+  <object id="47" x="352" y="250"/>
+  <object id="48" x="416" y="250"/>
+  <object id="49" x="480" y="250"/>
+  <object id="50" x="448" y="300"/>
+  <object id="51" x="384" y="300"/>
+  <object id="52" x="320" y="300"/>
+  <object id="53" x="256" y="300"/>
+  <object id="54" x="192" y="300"/>
+  <object id="55" x="128" y="300"/>
+  <object id="56" x="64" y="300"/>
+  <object id="58" x="32" y="350"/>
+  <object id="59" x="96" y="350"/>
+  <object id="60" x="160" y="350"/>
+  <object id="61" x="224" y="350"/>
+  <object id="62" x="288" y="350"/>
+  <object id="63" x="352" y="350"/>
+  <object id="64" x="416" y="350"/>
+  <object id="65" x="480" y="350"/>
+  <object id="68" x="480" y="50"/>
+  <object id="69" x="512" y="100"/>
+  <object id="70" x="512" y="200"/>
+  <object id="71" x="512" y="300"/>
+  <object id="73" x="512" y="0"/>
  </objectgroup>
 </map>

@@ -1,6 +1,6 @@
 package components;
 
-public class Minion implements PooledComponent{
+public class StatusComponent implements PooledComponent{
 	
 	public float health = 1;
 	public float speed = 1;

@@ -6,15 +6,19 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.HexagonalTiledMapRenderer;
+import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
+import com.badlogic.gdx.physics.box2d.World;
 
 import components.PositionComponent;
 import game.Bag;
 import game.EntityFactory;
 import game.Logger;
 import systems.MovementSystem;
+import systems.PhysicsSystem;
 import systems.RenderingSystem;
 
 public class DebugScreen extends BaseScreen {
@@ -32,9 +36,14 @@ public class DebugScreen extends BaseScreen {
 	TmxMapLoader mapLoader;
 	TiledMap map;
 	HexagonalTiledMapRenderer renderer;
+	
+	World world;
+	Box2DDebugRenderer b2dRenderer;
+	
 
 	@Override
 	public void show() {
+		world = Bag.world;
 		mapLoader = new TmxMapLoader();
 		map = mapLoader.load("untitled.tmx");
 
@@ -62,23 +71,29 @@ public class DebugScreen extends BaseScreen {
 		RenderingSystem r = new RenderingSystem(batch, cam);
 		r.priority = 10;
 		Bag.engine.addSystem(r);
+		Bag.engine.addSystem(new PhysicsSystem());
 
-		//EntityFactory.createBoard(new TextureRegion(hex));
+		EntityFactory.createBoardSensors(map, new TextureRegion(hex));
 		c = EntityFactory.circle();
 		Bag.engine.addEntity(c);
 
 		batch = new SpriteBatch(100);
 		batch.setProjectionMatrix(cam.combined);
+		
+		b2dRenderer = new Box2DDebugRenderer();
+		b2dRenderer.setDrawInactiveBodies(true);
 
 	}
 
 	@Override
 	public void render(float delta) {
-		Gdx.gl.glClearColor(1, 1, 1, 1);
+		cam.update();
+		Gdx.gl.glClearColor(0, 0, 0, 0);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		renderer.setView(cam);
 		renderer.render();
 		Bag.engine.update(delta);
+		b2dRenderer.render(world, cam.combined);
 	}
 
 	@Override
@@ -145,6 +160,7 @@ public class DebugScreen extends BaseScreen {
 			return false;
 		cam.unproject(tp.set(screenX, screenY, 0));
 		c.add(new PositionComponent(tp.x, tp.y));
+		cam.position.set(tp);
 		LOGGER.debug(tp.x + "  --  " + tp.y);
 		return true;
 	}
